@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { DealsComponent } from './deals/deals.component';
+import { CallbackComponent } from './callback/callback.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DealsComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule
