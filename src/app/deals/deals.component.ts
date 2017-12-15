@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-deals',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-
-  constructor() { }
+deals: any;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  	this.http.get('/deal').subscribe(data=>{
+  		this.deals = data;
+  	})
   }
 
 }

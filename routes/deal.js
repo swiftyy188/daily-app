@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Deal = require('../models/Deal.js')
 
+
 router.get('/', function(req, res, next){
 	Deal.find(function(err, deals){
 		if(err) return next(err);

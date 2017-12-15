@@ -1,3 +1,13 @@
-<p>
-  deals works!
-</p>
+<h1>Deals</h1>
+<div class="container">
+	<dl *ngFor="let deal of deals">
+		<dt>Name</dt>
+		<dd>{{deal.name}}</dd>
+		<dt>Description</dt>
+		<dt>{{deal.description}}</dt>
+		<dt>Original Price</dt>
+		<dd>{{deal.original_price}}</dd>
+		<dt>Sale Price</dt>
+		<dd>{{deal.sale_price}}</dd>
+	</dl>
+</div>
