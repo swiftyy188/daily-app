@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DealsComponent } from './deals/deals.component';
 import { CallbackComponent } from './callback.component';
+import { DealService } from './deal.service';
 
 const appRoutes: Routes = [
 
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DealsComponent,
-    CallbackComponent
+    CallbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
         { enableTracing: true } //debugging purpose only
       )
   ],
-  providers: [],
+  providers: [DealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
