@@ -9,7 +9,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/daily-app', {useMongoClient: true, promiseLibarary:
+mongoose.connect('mongodb://localhost/daily-app', {useMongoClient: true, promiseLibrary:
 require('bluebird') })
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err))

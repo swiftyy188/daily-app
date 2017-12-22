@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DealService } from '../deal.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-deals',
@@ -8,13 +9,20 @@ import { DealService } from '../deal.service';
   styleUrls: ['./deals.component.css']
 })
 export class DealsComponent implements OnInit {
-deals: any;
+	dealsSub: Subscription;
+	deals: any;
+	error: any;
   constructor(private dealService: DealService) { }
 
   ngOnInit() {
-  	this.dealService.getDeals().subscribe(data=>{
-  		this.deals = data;
-  	})
+  	this.dealsSub = this.dealService.getDeals().subscribe(
+  		data => this.deals = data,
+  		err => this.error = err
+  	);
   }
+  ngOnDestroy(){
+  	this.dealsSub.unsubscribe();
+  }
+  
 
 }

@@ -11,3 +11,14 @@
 		<dd>{{deal.sale_price}}</dd>
 	</dl>
 </div>
+
+<div class="col-sm-12" *ngIf="!authService.authenticated">
+  <div class="jumbotron text-center">
+    <h2>Get More Deals By Logging In</h2>
+  </div>
+</div>
+
+<!-- If an error occurs, we'll show an error message -->
+<div class="col-sm-12 alert alert-danger" *ngIf="error">
+  <strong>Oops!</strong> An error occurred fetching data. Please try again.
+</div>
