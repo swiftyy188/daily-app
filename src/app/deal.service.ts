@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -12,8 +12,10 @@ export class DealService {
   constructor(private http: HttpClient) { }
 
   getDeals(){
-  	return this.http.get('/deal')
-  		.pipe(
+    return this.http
+      .get('/deal', {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
+      })  		.pipe(
   		catchError(this.handleError)
   		);
   }

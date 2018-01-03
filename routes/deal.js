@@ -15,7 +15,7 @@ const jwtCheck = jwt({
         jwksRequestsPerMinute: 5,
         jwksUri: "https://jeffho.auth0.com/.well-known/jwks.json"
     }),
-    audience: 'localhost3000',
+    audience: 'http://localhost:3000',
     issuer: "https://jeffho.auth0.com/",
     algorithms: ['RS256']
 });
